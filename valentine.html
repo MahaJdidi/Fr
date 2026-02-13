@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Love ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        .heart {
+            font-size: 4em;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .message {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.6;
+        }
+
+        button {
+            background: white;
+            color: #ff4d6d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine's Day Lablab ❤️</h1>
+
+    <div class="heart">💖</div>
+
+    <div class="message">
+        To the most innocent and precious soul in my life,
+        <br><br>
+        You are not just the love of my life, you are also my soulmate and  
+        the reason I smile every day, my Frea.
+        <br><br>
+        Loving you is the most beautiful thing in the world.  
+        I am always grateful that I get to love you and be loved by you, baby.
+        <br><br>
+        This is my very first Valentine’s Day,  
+        and I feel so lucky to spend it with you.
+        <br><br>
+        Forever and always yours 💌❤️
+    </div>
+
+    <!-- MUSIC BUTTON -->
+    <button onclick="toggleMusic()" id="musicBtn">🎶 Play The Song</button>
+
+    <!-- LOVE BUTTON -->
+    <button onclick="showLove()">Click if you love me 💘</button>
+
+    <div class="hidden-message" id="loveMessage">
+        YEY! We made it baby, you are mine forever now 😁❤️✨
+    </div>
+
+    <!-- AUDIO FILE -->
+    <audio id="bgMusic" preload="auto" loop>
+        <source src="love-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+</div>
+
+<script>
+function showLove() {
+    document.getElementById("loveMessage").style.display = "block";
+}
+
+function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    const button = document.getElementById("musicBtn");
+
+    if (music.paused) {
+        music.play()
+            .then(() => {
+                button.innerHTML = "⏸ Pause The Song";
+            })
+            .catch(error => {
+                alert("If the music didn’t start, check the file name ❤️");
+                console.log(error);
+            });
+    } else {
+        music.pause();
+        button.innerHTML = "🎶 Play The Song";
+    }
+}
+</script>
+
+</body>
+</html>
